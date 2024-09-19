@@ -1,11 +1,11 @@
-# Get HACS
+# HACS极速版安装器
 
-The easiest way to get HACS for Home Assistant.
+最简单的HACS极速版安装方式！
 
-> **This add-on does not run HACS. This add-on only provides the easiest way to download HACS.**
+> **此加载项仅提供安装HACS极速版的功能**
 
-## Instructions
+## 说明
 
-1. Use the **Install** button above to build the add-on.
-2. Start the add-on.
-3. Navigate to the add-on logs and follow instructions given there.
+1. 点击 **安装** 按钮来构建此加载项
+2. 启动此加载项
+3. 切换到到日志页面并按照提供的指示进行操作

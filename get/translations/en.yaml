@@ -1,4 +1,4 @@
 configuration:
   channel:
-    name: Channel
-    description: What channel should be used to download HACS.
+    name: 安装渠道
+    description: 请选择要安装的版本，正式版(current)/开发版(development)

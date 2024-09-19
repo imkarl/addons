@@ -4,7 +4,7 @@
 CHANNEL=$(bashio::config 'channel' 'current')
 
 bashio::log.info "------------------------------------"
-bashio::log.info "Starting HACS download..."
+bashio::log.info "Starting HACS download... 开始下载..."
 bashio::log.info "Channel: ${CHANNEL}"
 bashio::log.info "------------------------------------"
 
@@ -14,7 +14,7 @@ if ! bashio::fs.directory_exists "/homeassistant/custom_components"; then
 fi
 
 if bashio::var.equals "${CHANNEL}" "current"; then
-    wget -O ./get-hacs https://raw.githubusercontent.com/hacs/get/main/get
+    wget -O ./get-hacs https://get.hacs.vip
     chmod +x ./get-hacs
     bash ./get-hacs
 
@@ -25,7 +25,7 @@ elif bashio::var.equals "${CHANNEL}" "development"; then
         rm -rf /tmp/hacs
     fi
 
-    git clone --depth 1 --branch main https://github.com/hacs/integration.git /tmp/hacs
+    git clone --depth 1 --branch main https://github.com/hacs-china/integration.git /tmp/hacs
 
     cd /tmp/hacs || bashio::exit.nok "Could not find the integration source"
 
@@ -45,8 +45,9 @@ elif bashio::var.equals "${CHANNEL}" "development"; then
     mv /tmp/hacs/custom_components/hacs /homeassistant/custom_components/hacs
     rm -rf /tmp/hacs
 
-    bashio::log.info "Download complete..."
+    bashio::log.info "Download complete... 下载完成..."
     bashio::log.info "Now, restart Home Assistant. Then, configure it."
+    bashio::log.info "请重启 Home Assistant 并添加 HACS 集成"
 
 else
     bashio::exit.nok "Invalid channel!"
