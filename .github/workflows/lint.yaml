@@ -3,10 +3,10 @@ name: Lint
 on:
   push:
     branches:
-      - main
+      - china
   pull_request:
     branches:
-      - main
+      - china
 
 permissions: {}
 

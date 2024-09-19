@@ -7,10 +7,10 @@ env:
 on:
   push:
     branches:
-      - main
+      - china
   pull_request:
     branches:
-      - main
+      - china
 
 jobs:
   init:
