@@ -4,8 +4,8 @@
 CHANNEL=$(bashio::config 'channel' 'current')
 
 bashio::log.info "------------------------------------"
-bashio::log.info "Starting HACS download... 开始下载..."
-bashio::log.info "Channel: ${CHANNEL}"
+bashio::log.info "开始下载..."
+bashio::log.info "安装渠道: ${CHANNEL}"
 bashio::log.info "------------------------------------"
 
 if ! bashio::fs.directory_exists "/homeassistant/custom_components"; then
@@ -19,7 +19,7 @@ if bashio::var.equals "${CHANNEL}" "current"; then
     bash ./get-hacs
 
 elif bashio::var.equals "${CHANNEL}" "development"; then
-    bashio::log.info "Downloading the integration source..."
+    bashio::log.info "下载HACS集成源码..."
     if bashio::fs.directory_exists "/tmp/hacs"; then
         bashio::log.info "Cleaning up the previous download..."
         rm -rf /tmp/hacs
@@ -29,7 +29,7 @@ elif bashio::var.equals "${CHANNEL}" "development"; then
 
     cd /tmp/hacs || bashio::exit.nok "Could not find the integration source"
 
-    bashio::log.info "Installing the frontend..."
+    bashio::log.info "安装前端..."
     bash ./scripts/install/frontend
 
     bashio::log.info "Injecting a version..."
@@ -45,8 +45,7 @@ elif bashio::var.equals "${CHANNEL}" "development"; then
     mv /tmp/hacs/custom_components/hacs /homeassistant/custom_components/hacs
     rm -rf /tmp/hacs
 
-    bashio::log.info "Download complete... 下载完成..."
-    bashio::log.info "Now, restart Home Assistant. Then, configure it."
+    bashio::log.info "安装完成..."
     bashio::log.info "请重启 Home Assistant 并添加 HACS 集成"
 
 else
